@@ -18,4 +18,14 @@
   .heading-size {
     @apply text-[2.75rem] font-custom leading-[3.3125rem]
   }
+  .swiper-wrapper {
+    @apply relative
+  }
+  .pagination-anim {
+    animation: progressAnimations 6s;
+  }
+  @keyframes progressAnimations {
+    0% { width: 0%; }
+    100% { width: 100% }
+  }
 }
