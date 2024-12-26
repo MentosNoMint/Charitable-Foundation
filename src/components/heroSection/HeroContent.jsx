@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, { useContext } from 'react';
 import Slider from './Slider';
 import { useQuery } from '@tanstack/react-query';
 import { getSlider } from '../../lib/API';
 import SaveKids from './SaveKids';
+import { SlideContext } from '../../lib/SliderContext';
 const HeroContent = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['slides'],
@@ -10,15 +11,15 @@ const HeroContent = () => {
     select: (data) => data?.data.data,
   });
   const fixedNews = data?.find((test) => test.fixed);
-  const currentDiv = 1;
+  const { currentSlide } = useContext(SlideContext);
   const divs = Array.from({ length: data?.length }, (_, index) => index + 1);
- 
+
   return (
     <div className='w-full flex relative flex-col'>
       <div className='flex gap-3 max-w-[18rem]'>
         {divs.map((id) => (
           <div key={id} className='flex-1 h-0.5 bg-black-gray'>
-            {id === currentDiv && <div className='h-0.5 bg-black pagination-anim'></div>}
+            {id === currentSlide && <div className='h-0.5 bg-black pagination-anim'></div>}
           </div>
         ))}
       </div>

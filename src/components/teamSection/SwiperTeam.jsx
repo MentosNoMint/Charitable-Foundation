@@ -1,32 +1,70 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import { getEmployees } from '../../lib/API';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const SwiperTeam = () => {
+  const swiperRef = useRef(null); // Создаем ссылку для Swiper
+  const { data, isLoading } = useQuery({
+    queryKey: ['employees'],
+    queryFn: getEmployees,
+    select: (data) => data?.data.data,
+  });
+  const handleNextSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const handlePrevSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
   return (
     <div className='w-full flex flex-col'>
-      <div className='flex gap-3 w-full justify-end'>
-        <div className='rounded-full w-10 h-10 bg-[#f1f1f1] flex justify-center items-center'>
+      <div className='flex gap-3 w-full justify-end mt-5'>
+        {/* Кнопка назад */}
+        <div
+          onClick={handlePrevSlide}
+          className='rounded-full w-10 h-10 bg-[#f1f1f1] flex justify-center items-center cursor-pointer'
+        >
           <img src='/assets/images/black-arrow.svg' alt='arrow' />
         </div>
-        <div className='rounded-full w-10 h-10 bg-[#f1f1f1] flex justify-center items-center'>
-          <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180'/>
+
+        {/* Кнопка вперед */}
+        <div
+          onClick={handleNextSlide}
+          className='rounded-full w-10 h-10 bg-[#f1f1f1] flex justify-center items-center cursor-pointer'
+        >
+          <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180' />
         </div>
       </div>
-      <div className='flex mt-7 gap-10'>
-        <div className='flex flex-col'>
-            <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'></div>
-            <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>Имя Фамилия</span>
-            <span className='font-custom text-lg'>Психолог</span>
-        </div>
-        <div className='flex flex-col'>
-            <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'></div>
-            <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>Имя Фамилия</span>
-            <span className='font-custom text-lg'>Психолог</span>
-        </div>
-        <div className='flex flex-col'>
-            <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'></div>
-            <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>Имя Фамилия</span>
-            <span className='font-custom text-lg'>Психолог</span>
-        </div>
+
+      <div className='flex mt-7'>
+        <Swiper
+          ref={swiperRef}
+          spaceBetween={30}
+          slidesPerView={4}
+          slidesPerGroup={4}
+          loop={true}
+        >
+          {data?.map((employee) => (
+            <SwiperSlide key={employee.id}>
+              <div className='flex flex-col'>
+                <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'>
+                  <img src={`http://localhost:1337${employee.photo?.url}`} alt="photo" className='rounded-[2.5rem] h-full w-full object-cover'/>
+                </div>
+                <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>{employee.name}</span>
+                <span className='font-custom text-lg'>{employee.position}</span>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

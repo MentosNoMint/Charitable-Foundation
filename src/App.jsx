@@ -16,15 +16,14 @@ function App() {
 
       <QueryClientProvider client={queryClient}>
         <HeroBlock />
+        <AboutSection />
+        <div className='w-full flex items-center flex-col bg-light-gray'>
+          <TeamSection />
+          <GallerySection />
+        </div>
+        <SupportSection />
+        <PublicationsSection />
       </QueryClientProvider>
-      
-      <AboutSection />
-      <div className='w-full flex items-center flex-col bg-light-gray'>
-        <TeamSection />
-        <GallerySection />
-      </div>
-      <SupportSection />
-      <PublicationsSection />
       <FaqSection />
     </div>
   );

@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { getSlider } from '../../lib/API';
 import { useQuery } from '@tanstack/react-query';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
+import { SlideContext } from '../../lib/SliderContext';
 import 'swiper/css';
 const Slider = () => {
+  const { setCurrentSlide } = useContext(SlideContext);
   const { data, isLoading, isError } = useQuery({
     queryKey: ['slides'],
     queryFn: getSlider,
   });
+
+  const handleSlideChange = (swiper) => {
+    setCurrentSlide(swiper.realIndex + 1);
+    // Вызовите свою функцию здесь
+  };
+
   return (
     <div className={`max-w-[831px] h-[606px] flex relative w-full rounded-[2rem] ${isLoading && 'animate-pulse bg-gray-300'}`}>
       <Swiper
         spaceBetween={10}
         slidesPerGroup={1}
         slidesPerView={1}
+        onSlideChange={handleSlideChange}
         loop={true}
         modules={[Autoplay, Navigation]}
         autoplay={{
@@ -22,9 +31,10 @@ const Slider = () => {
           disableOnInteraction: false,
         }}
         navigation={{
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-btn-prev',
+          nextEl: '.swiper-btn-next',
         }}
+
       >
         {data?.data.data.map((slide) => (
           <SwiperSlide key={slide.id}>
@@ -35,13 +45,13 @@ const Slider = () => {
             />
           </SwiperSlide>
         ))}
-        <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-button-prev ml-4'>
+        <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-prev ml-4'>
           <img src='/assets/images/black-arrow.svg' alt='arrow' />
         </div>
         <div className='w-full flex justify-end'>
-        <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-button-next mr-4'>
-          <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180'/>
-        </div>
+          <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-next mr-4'>
+            <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180' />
+          </div>
         </div>
       </Swiper>
     </div>

@@ -1,33 +1,13 @@
 import React from 'react';
-
+import Project from './Project';
+import Ivent from './Ivent';
+import Cooperation from './Cooperation';
 const PublicationsContent = () => {
-    // подключить страпи, сделать свайпер.
   return (
     <div className='w-full flex flex-col mt-[6rem]'>
-      <h1 className='heading-size'>Проекты</h1>
-      <div className='flex flew-wrap'>
-        <div className='mt-14 font-custom'>
-          <img src='/assets/images/sample-project.svg' alt='test' />
-          <h1 className='text-xl mt-2'>Название проекта</h1>
-          <p className='text-base text-[#797979]'>22 слайда</p>
-        </div>
-      </div>
-      <h1 className='heading-size mt-[4.25rem]'>Мероприятия</h1>
-      <div className='flex flew-wrap'>
-        <div className='mt-14 font-custom'>
-          <img src='/assets/images/sample-project.svg' alt='test' />
-          <h1 className='text-xl mt-2'>Название проекта</h1>
-          <p className='text-base text-[#797979]'>22 слайда</p>
-        </div>
-      </div>
-      <h1 className='heading-size mt-[4.25rem]'>Сотрудничество</h1>
-      <div className='flex flew-wrap'>
-        <div className='mt-14 font-custom'>
-          <img src='/assets/images/sample-project.svg' alt='test' />
-          <h1 className='text-xl mt-2'>Название проекта</h1>
-          <p className='text-base text-[#797979]'>22 слайда</p>
-        </div>
-      </div>
+      <Project />
+      <Ivent />
+      <Cooperation />
       <div className='w-full flex justify-between flex-wrap mt-[4.25rem]'>
         <div className='max-w-[36.75rem] w-full bg-light-gray h-[15rem] rounded-[2rem] py-6 px-6 flex flex-col font-custom'>
           <h1 className='text-2xl'>Фильмы</h1>
