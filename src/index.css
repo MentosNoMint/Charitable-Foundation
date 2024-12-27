@@ -21,6 +21,9 @@
   .swiper-wrapper {
     @apply relative
   }
+  .footer-text {
+    @apply font-custom text-[#414141] text-sm
+  }
   .pagination-anim {
     animation: progressAnimations 6s;
   }

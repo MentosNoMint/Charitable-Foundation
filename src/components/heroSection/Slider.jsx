@@ -10,15 +10,19 @@ const Slider = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['slides'],
     queryFn: getSlider,
+    select: (data) => data?.data.data,
   });
 
   const handleSlideChange = (swiper) => {
     setCurrentSlide(swiper.realIndex + 1);
-    // Вызовите свою функцию здесь
   };
 
   return (
-    <div className={`max-w-[831px] h-[606px] flex relative w-full rounded-[2rem] ${isLoading && 'animate-pulse bg-gray-300'}`}>
+    <div
+      className={`max-w-[831px] h-[606px] flex relative w-full rounded-[2rem] ${
+        isLoading && 'animate-pulse bg-gray-300'
+      }`}
+    >
       <Swiper
         spaceBetween={10}
         slidesPerGroup={1}
@@ -34,12 +38,11 @@ const Slider = () => {
           prevEl: '.swiper-btn-prev',
           nextEl: '.swiper-btn-next',
         }}
-
       >
-        {data?.data.data.map((slide) => (
+        {data?.map((slide) => (
           <SwiperSlide key={slide.id}>
             <img
-              src={`http://localhost:1337${slide.photo.url}`}
+              src={import.meta.env.VITE_LOCAL_URL + slide.photo?.url}
               alt='img'
               className='rounded-[2rem] h-full w-full object-cover'
             />
@@ -50,7 +53,11 @@ const Slider = () => {
         </div>
         <div className='w-full flex justify-end'>
           <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-next mr-4'>
-            <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180' />
+            <img
+              src='/assets/images/black-arrow.svg'
+              alt='arrow'
+              className='rotate-180'
+            />
           </div>
         </div>
       </Swiper>

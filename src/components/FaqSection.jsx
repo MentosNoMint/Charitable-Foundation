@@ -6,14 +6,28 @@ const FaqSection = () => {
       <h1 className='heading-size'>Часто задаваемые вопросы</h1>
       <div className='flex flex-col w-full mt-20 cursor-pointer'>
         <div className='flex w-full justify-between font-custom items-center'>
-          <span className='text-[2rem]'>Как мне можно записаться к вам?</span>
+          <span className='text-[2rem]'>Зачем вы это делаете? Каждый сам распоряжается своим телом.</span>
           <img src='/assets/images/plus-icon.svg' alt='plus' />
         </div>
         <div className='w-full h-px bg-[#E1E1E1] mt-9'></div>
       </div>
       <div className='flex flex-col w-full mt-8 cursor-pointer'>
         <div className='flex w-full justify-between font-custom items-center'>
-          <span className='text-[2rem]'>еще важный вопрос как никогда</span>
+          <span className='text-[2rem]'>Зачем плодить нищету?</span>
+          <img src='/assets/images/plus-icon.svg' alt='plus' />
+        </div>
+        <div className='w-full h-px bg-[#E1E1E1] mt-9'></div>
+      </div>
+      <div className='flex flex-col w-full mt-8 cursor-pointer'>
+        <div className='flex w-full justify-between font-custom items-center'>
+          <span className='text-[2rem]'>Что я могу дать ребенку?</span>
+          <img src='/assets/images/plus-icon.svg' alt='plus' />
+        </div>
+        <div className='w-full h-px bg-[#E1E1E1] mt-9'></div>
+      </div>
+      <div className='flex flex-col w-full mt-8 cursor-pointer'>
+        <div className='flex w-full justify-between font-custom items-center'>
+          <span className='text-[2rem]'>А чем вы мне поможете? Миллион дадите?</span>
           <img src='/assets/images/plus-icon.svg' alt='plus' />
         </div>
         <div className='w-full h-px bg-[#E1E1E1] mt-9'></div>

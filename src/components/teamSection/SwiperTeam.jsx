@@ -41,7 +41,11 @@ const SwiperTeam = () => {
           onClick={handleNextSlide}
           className='rounded-full w-10 h-10 bg-[#f1f1f1] flex justify-center items-center cursor-pointer'
         >
-          <img src='/assets/images/black-arrow.svg' alt='arrow' className='rotate-180' />
+          <img
+            src='/assets/images/black-arrow.svg'
+            alt='arrow'
+            className='rotate-180'
+          />
         </div>
       </div>
 
@@ -57,9 +61,15 @@ const SwiperTeam = () => {
             <SwiperSlide key={employee.id}>
               <div className='flex flex-col'>
                 <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'>
-                  <img src={`http://localhost:1337${employee.photo?.url}`} alt="photo" className='rounded-[2.5rem] h-full w-full object-cover'/>
+                  <img
+                    src={import.meta.env.VITE_LOCAL_URL + employee.photo?.url}
+                    alt='photo'
+                    className='rounded-[2.5rem] h-full w-full object-cover'
+                  />
                 </div>
-                <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>{employee.name}</span>
+                <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>
+                  {employee.name}
+                </span>
                 <span className='font-custom text-lg'>{employee.position}</span>
               </div>
             </SwiperSlide>

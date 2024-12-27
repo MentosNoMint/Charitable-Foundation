@@ -19,7 +19,9 @@ const HeroContent = () => {
       <div className='flex gap-3 max-w-[18rem]'>
         {divs.map((id) => (
           <div key={id} className='flex-1 h-0.5 bg-black-gray'>
-            {id === currentSlide && <div className='h-0.5 bg-black pagination-anim'></div>}
+            {id === currentSlide && (
+              <div className='h-0.5 bg-black pagination-anim'></div>
+            )}
           </div>
         ))}
       </div>
@@ -30,7 +32,9 @@ const HeroContent = () => {
             <div
               className='max-w-[21.5625rem] w-full h-[21.375rem] bg-black-gray rounded-[2rem] bg-cover flex flex-col items-start bg-center'
               style={{
-                backgroundImage: `url('http://localhost:1337${fixedNews?.photo.url}')`,
+                backgroundImage: `url('${
+                  import.meta.env.VITE_LOCAL_URL + fixedNews.photo?.url
+                }')`,
               }}
             >
               <div className='w-[3.625rem] h-[3.625rem] rounded-full bg-black flex justify-center items-center ml-auto mt-5 mr-5 cursor-pointer'>

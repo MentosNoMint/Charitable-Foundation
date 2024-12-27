@@ -7,6 +7,7 @@ import SupportSection from './components/SupportSection';
 import PublicationsSection from './components/publicationsSections/PublicationsSection';
 import FaqSection from './components/FaqSection';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import Footer from './components/Footer';
 
 const queryClient = new QueryClient();
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <PublicationsSection />
       </QueryClientProvider>
       <FaqSection />
+      <Footer />
     </div>
   );
 }
