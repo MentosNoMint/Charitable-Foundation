@@ -24,7 +24,7 @@ const GallerySection = () => {
         <div className='flex items-center'>
           <span className='font-custom text-[0.9375rem]'>Показать все</span>
           <div className='flex justify-center items-center ml-4 w-7 h-7 bg-black rounded-lg'>
-            <img src='/assets/images/view-all-arrow.svg' alt='' />
+            <img src='/assets/images/view-all-arrow.svg' alt='arrow' />
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ const GallerySection = () => {
         {data?.map((photo) => (
           <div className='max-w-[23rem] w-full bg-[#f1f1f1] h-[15.3125rem] rounded-[2rem]'>
             <img
-              src={import.meta.env.VITE_LOCAL_URL + data.photo?.url}
+              src={import.meta.env.VITE_LOCAL_URL + photo.photo?.url}
               alt='photo'
               className='rounded-[2rem] h-full w-full object-cover'
             />
