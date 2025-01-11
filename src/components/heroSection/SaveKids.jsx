@@ -10,7 +10,7 @@ const SaveKids = () => {
   return (
     <>
       {data && (
-        <div className='bg-main-green max-w-[21.5625rem] w-full h-[15.25rem] rounded-[2rem] mt-auto relative flex flex-col'>
+        <div className='bg-main-green max-w-[21.5625rem] w-full h-[15.25rem] rounded-[2rem] mt-auto relative flex flex-col max-md:max-w-[50rem] max-book:h-[21.375rem] max-md:h-[15.25rem] max-book:max-w-[100rem]'>
           <div className='flex flex-col mt-6 ml-6'>
             <span className='font-custom text-2xl'>Спасено детей</span>
             <img
@@ -29,7 +29,9 @@ const SaveKids = () => {
           </div>
         </div>
       )}
-      {isLoading && <div className='bg-main-green max-w-[21.5625rem] w-full h-[15.25rem] rounded-[2rem] mt-auto relative animate-pulse' />}
+      {isLoading && (
+        <div className='bg-main-green max-w-[21.5625rem] w-full h-[15.25rem] rounded-[2rem] mt-auto relative flex flex-col max-md:max-w-[50rem] max-book:h-[21.375rem] max-md:h-[15.25rem] max-book:max-w-[100rem] animate-pulse' />
+      )}
     </>
   );
 };

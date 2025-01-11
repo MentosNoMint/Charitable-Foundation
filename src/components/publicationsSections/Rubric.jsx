@@ -1,37 +1,37 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getProjects } from '../../lib/API';
-const Project = () => {
+import { getRubrics } from '../../lib/API';
+const Rubric = () => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['project'],
-    queryFn: getProjects,
+    queryKey: ['rubrics'],
+    queryFn: getRubrics,
     select: (data) => data?.data.data,
   });
+  console.log(data);
   return (
-    <>
-      <h1 className='heading-size'>Проекты</h1>
+    <div className='mt-[4.25rem]'>
+      <h1 className='heading-size'>Рубрика "Две полоски"</h1>
       <div className='flex flew-wrap gap-4 max-sm:flex-wrap max-sm:justify-center'>
-        {data?.map((project) => (
+        {data?.map((rubrics) => (
           <a
             className='mt-14 font-custom cursor-pointer'
-            key={project.id}
-            href={import.meta.env.VITE_LOCAL_URL + project.presentation?.url}
+            key={rubrics.id}
+            href={rubrics.link}
             target='_blank'
           >
             <div className='w-[23.75rem] h-[13.5rem] rounded-[1.2rem] max-sm:w-full max-md:max-w-[20rem]'>
               <img
-                src={import.meta.env.VITE_LOCAL_URL + project.photo?.url}
+                src={import.meta.env.VITE_LOCAL_URL + rubrics.photo?.url}
                 alt='test'
                 className='rounded-[1.2rem] h-full w-full object-cover'
               />
             </div>
-            <h1 className='text-xl mt-2'>{project.name}</h1>
-            <p className='text-base text-[#797979]'>{project.countSlides}</p>
+            <h1 className='text-xl mt-2'>{rubrics.name}</h1>
           </a>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default Project;
+export default Rubric;

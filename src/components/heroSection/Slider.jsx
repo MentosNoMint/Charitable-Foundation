@@ -21,7 +21,7 @@ const Slider = () => {
     <div
       className={`max-w-[831px] h-[606px] flex relative w-full rounded-[2rem] ${
         isLoading && 'animate-pulse bg-gray-300'
-      }`}
+      } max-md:h-[21.375rem] max-book:max-w-[100rem]`}
     >
       <Swiper
         spaceBetween={10}
@@ -48,11 +48,11 @@ const Slider = () => {
             />
           </SwiperSlide>
         ))}
-        <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-prev ml-4'>
+        <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-prev ml-4 max-sm:mt-[-50%] max-book:mt-[-28%]'>
           <img src='/assets/images/black-arrow.svg' alt='arrow' />
         </div>
         <div className='w-full flex justify-end'>
-          <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-next mr-4'>
+          <div className='absolute z-20 mt-[-40%] rounded-full w-10 h-10 bg-white flex justify-center items-center cursor-pointer swiper-btn-next mr-4 max-sm:mt-[-50%] max-book:mt-[-28%]'>
             <img
               src='/assets/images/black-arrow.svg'
               alt='arrow'

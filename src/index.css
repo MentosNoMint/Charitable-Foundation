@@ -14,7 +14,6 @@
   .header-text {
     @apply text-base font-custom
   }
-
   .heading-size {
     @apply text-[2.75rem] font-custom leading-[3.3125rem]
   }

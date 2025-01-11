@@ -18,7 +18,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <HeroBlock />
         <AboutSection />
-        <div className='w-full flex items-center flex-col bg-light-gray'>
+        <div className='w-full flex items-center flex-col bg-light-gray px-6'>
           <TeamSection />
           <GallerySection />
         </div>

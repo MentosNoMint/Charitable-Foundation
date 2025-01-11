@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { faq } from '../constans';
 
 const FaqSection = () => {
-  const [activeIndex, setActiveIndex] = useState()
+  const [activeIndex, setActiveIndex] = useState();
 
   const toggleFaq = (index) => {
-    setActiveIndex(activeIndex !== index && index)
-  }
+    setActiveIndex(activeIndex !== index && index);
+  };
 
   return (
-    <div className='max-w-[1196px] w-full flex items-center flex-col mt-[6.5rem]'>
+    <div className='max-w-[74.75rem] w-full flex items-center flex-col mt-[6.5rem] max-book:px-6'>
       <h1 className='heading-size mb-12'>Часто задаваемые вопросы</h1>
       {faq.map((faq, index) => (
-        <div className='flex flex-col w-full mt-8 cursor-pointer'
+        <div
+          className='flex flex-col w-full mt-8 cursor-pointer'
           key={index}
           onClick={() => toggleFaq(index)}
         >
@@ -21,7 +22,9 @@ const FaqSection = () => {
             <img src='/assets/images/plus-icon.svg' alt='plus' />
           </div>
           <div className='w-full h-px bg-[#E1E1E1] mt-9'></div>
-          {activeIndex === index && <span className='font-custom mt-4'>{faq.answer}</span>}
+          {activeIndex === index && (
+            <span className='font-custom mt-4'>{faq.answer}</span>
+          )}
         </div>
       ))}
     </div>

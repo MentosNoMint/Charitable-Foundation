@@ -10,10 +10,15 @@ const Cooperation = () => {
   return (
     <div className='mt-[4.25rem]'>
       <h1 className='heading-size'>Сотрудничество</h1>
-      <div className='flex flew-wrap gap-4'>
+      <div className='flex flew-wrap gap-4 max-sm:flex-wrap max-sm:justify-center'>
         {data?.map((cooperation) => (
-          <div className='mt-14 font-custom' key={cooperation.id}>
-            <div className='w-[23.75rem] h-[13.5rem]'>
+          <a
+            className='mt-14 font-custom'
+            key={cooperation.id}
+            href={import.meta.env.VITE_LOCAL_URL + cooperation.presentation?.url}
+            target='_blank'
+          >
+            <div className='w-[23.75rem] h-[13.5rem] max-sm:w-full max-md:max-w-[20rem]'>
               <img
                 src={import.meta.env.VITE_LOCAL_URL + cooperation.photo?.url}
                 alt='test'
@@ -24,7 +29,7 @@ const Cooperation = () => {
             <p className='text-base text-[#797979]'>
               {cooperation.countSlides}
             </p>
-          </div>
+          </a>
         ))}
       </div>
     </div>

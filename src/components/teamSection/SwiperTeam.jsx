@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -55,12 +55,39 @@ const SwiperTeam = () => {
           spaceBetween={30}
           slidesPerView={4}
           slidesPerGroup={4}
+          breakpoints={{
+            1100: {
+              slidesPerView: 4,
+              slidesPerGroup: 4,
+              spaceBetween: 8,
+            },
+            960: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 6,
+            },
+            720: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 6,
+            },
+            540: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 4,
+            },
+            320: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 2,
+            },
+          }}
           loop={true}
         >
           {data?.map((employee) => (
             <SwiperSlide key={employee.id}>
               <div className='flex flex-col'>
-                <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px]'>
+                <div className='w-[270px] h-[319px] bg-[#f1f1f1] rounded-[45px] max-md:w-full'>
                   <img
                     src={import.meta.env.VITE_LOCAL_URL + employee.photo?.url}
                     alt='photo'
