@@ -1,6 +1,12 @@
 import React from 'react';
-
+import { getQrCode } from '../lib/API';
+import { useQuery } from '@tanstack/react-query';
 const SupportSection = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['qrCode'],
+    queryFn: getQrCode,
+    select: (data) => data?.data.data,
+  });
   return (
     <div
       className='max-w-[74.75rem] w-full flex flex-col mt-[5.75rem] max-book:px-6'
@@ -106,9 +112,9 @@ const SupportSection = () => {
           </div>
         </div>
         <img
-          src='/assets/images/qr-code.svg'
+          src={import.meta.env.VITE_LOCAL_URL + data?.qr.url}
           alt='qr-code'
-          className='w-[9rem] ml-auto mr-5 max-sm:ml-0 max-md:mt-5'
+          className='w-[9rem] h-[9rem] ml-auto mr-5 max-sm:ml-0 max-md:mt-5'
         />
       </div>
     </div>
