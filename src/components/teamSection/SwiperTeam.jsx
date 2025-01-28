@@ -91,7 +91,7 @@ const SwiperTeam = () => {
                   <img
                     src={import.meta.env.VITE_LOCAL_URL + employee.photo?.url}
                     alt='photo'
-                    className='rounded-[2.5rem] h-full w-full object-cover'
+                    className='rounded-[2.5rem] h-full w-full object-cover object-[70%_20%]'
                   />
                 </div>
                 <span className='font-custom text-[1.375rem] mt-5 leading-[1.5rem]'>

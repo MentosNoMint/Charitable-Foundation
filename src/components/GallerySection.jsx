@@ -14,7 +14,7 @@ const GallerySection = () => {
   return (
     <div className='w-full flex flex-col max-w-[74.75rem] mt-[7rem]'>
       <h1 className='heading-size leading-[3.3125rem] max-md:text-[2.5rem]'>
-        Галлерея <br />
+        Галерея <br />
         спасенных детей
       </h1>
       <div className='flex justify-between mt-7 flex-wrap'>
@@ -33,7 +33,7 @@ const GallerySection = () => {
       </div>
       <div className='flex flex-wrap mt-20 gap-11 mb-[7.125rem] max-md:gap-5 max-md:justify-center'>
         {data?.slice(0, openAll ? data.length : 3).map((photo) => (
-          <div key={photo.id} className='max-w-[23rem] w-full bg-[#f1f1f1] h-[15.3125rem] rounded-[2rem] max-sm:max-w-[27rem] max-md:max-w-[20rem]'>
+          <div key={photo.id} className='max-w-[23rem] w-full bg-[#f1f1f1] h-[23rem] rounded-[2rem] max-sm:max-w-[27rem] max-md:max-w-[20rem]'>
             <img
               src={import.meta.env.VITE_LOCAL_URL + photo.photo?.url}
               alt='photo'
