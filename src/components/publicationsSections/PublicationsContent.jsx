@@ -8,7 +8,7 @@ import Articles from './Articles';
 import Rubric from './Rubric';
 const PublicationsContent = () => {
   return (
-    <div className='w-full flex flex-col mt-[6rem] ' id='publications'>
+    <div className='w-full flex flex-col mt-[6rem]' id='publications'>
       <Project />
       <Ivent />
       <Cooperation />

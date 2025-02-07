@@ -7,7 +7,7 @@ const instance = axios.create({
 export const getSlider = () => instance.get("/slides?populate=*");
 export const getSaveKids = () => instance.get("/savekid");
 export const getEmployees = () => instance.get("/employees?populate=*")
-export const getGalleryKids = () => instance.get("/gallerykids?populate=*")
+export const getGalleryKids = () => instance.get("/gallerykids?populate=*&pagination[pageSize]=100")
 export const getProjects = () => instance.get("/projects?populate=*")
 export const getSotrudnichestvos = () => instance.get("/sotrudnichestvos?populate=*")
 export const getIvents = () => instance.get("/ivents?populate=*")

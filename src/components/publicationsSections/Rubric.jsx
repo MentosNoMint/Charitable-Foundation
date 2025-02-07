@@ -7,14 +7,14 @@ const Rubric = () => {
     queryFn: getRubrics,
     select: (data) => data?.data.data,
   });
-  console.log(data);
+  
   return (
     <div className='mt-[4.25rem]'>
-      <h1 className='heading-size'>Рубрика "Две полоски"</h1>
-      <div className='flex flew-wrap gap-4 max-sm:flex-wrap max-sm:justify-center'>
+      <h1 className='heading-size mb-10'>Рубрика "Две полоски"</h1>
+      <div className='flex flex-wrap gap-4 max-sm:justify-center'>
         {data?.map((rubrics) => (
           <a
-            className='mt-14 font-custom cursor-pointer'
+            className='mt-4 font-custom cursor-pointer'
             key={rubrics.id}
             href={rubrics.link}
             target='_blank'

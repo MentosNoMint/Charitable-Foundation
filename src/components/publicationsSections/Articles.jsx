@@ -23,7 +23,7 @@ const Articles = () => {
       <h1 className='text-2xl'>Статьи</h1>
       <div className='mt-auto flex justify-between'>
         <span className='text-lg leading-[1.5rem] max-sm:max-w-[13rem] max-sm:text-[1.1rem]'>
-          Статьи с новостей, групп вк, про <br /> нашу деятельность
+          Статьи, новости, информация о <br /> деятельности фонда
         </span>
         <button
           className='w-14 h-14 rounded-full bg-black flex justify-center items-center ml-auto cursor-pointer'

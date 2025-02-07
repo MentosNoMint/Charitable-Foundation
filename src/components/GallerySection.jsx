@@ -8,7 +8,8 @@ const GallerySection = () => {
     queryFn: getGalleryKids,
     select: (data) => data?.data.data,
   });
-  
+
+
   const [openAll, setOpenAll] = useState(false);
 
   return (
@@ -24,7 +25,7 @@ const GallerySection = () => {
           <div className='rounded-sm bg-[#BBDEFA] w-4 h-4 ml-5'></div>
           <span className='font-custom text-[0.9375rem] ml-2.5'>Мальчик</span>
         </div>
-        <button className='flex items-center' onClick={() => setOpenAll(!openAll)}>
+        <button className='flex items-center max-md:mt-2' onClick={() => setOpenAll(!openAll)}>
           <span className='font-custom text-[0.9375rem]'>{openAll ? 'Скрыть' : 'Показать все'}</span>
           <div className='flex justify-center items-center ml-4 w-7 h-7 bg-black rounded-lg'>
             <img src='/assets/images/view-all-arrow.svg' alt='arrow' />
@@ -42,6 +43,11 @@ const GallerySection = () => {
           </div>
         ))}
       </div>
+      {openAll && (
+        <div style={{ position: 'fixed', bottom: '30px', right: '30px' }}>
+          <button onClick={() => setOpenAll(!openAll)} className='font-custom bg-black pt-2 pb-3 px-5 rounded-full text-white'>Закрыть все</button>
+        </div>
+      )}
     </div>
   );
 };

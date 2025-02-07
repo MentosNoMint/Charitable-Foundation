@@ -31,7 +31,7 @@ const SupportSection = () => {
       <div className='flex mt-[5.75rem] gap-5 flex-wrap max-md:flex-col'>
         <div className='flex-1 bg-light-gray h-[16.75rem] rounded-[2rem] py-7 px-7 flex flex-col'>
           <div className='flex flex-col'>
-            <span className='text-2xl font-custom'>Статьньте волонтером</span>
+            <span className='text-2xl font-custom'>Станьте волонтером</span>
             <img
               src='/assets/images/draw-volunteer.svg'
               alt='draw'
@@ -111,11 +111,16 @@ const SupportSection = () => {
             </div>
           </div>
         </div>
-        <img
-          src={import.meta.env.VITE_LOCAL_URL + data?.qr.url}
-          alt='qr-code'
-          className='w-[9rem] h-[9rem] ml-auto mr-5 max-sm:ml-0 max-md:mt-5'
-        />
+        <div className='flex flex-col'>
+          <img
+            src={import.meta.env.VITE_LOCAL_URL + data?.qr.url}
+            alt='qr-code'
+            className='w-[9rem] h-[9rem] ml-auto mr-5 max-sm:ml-0 max-md:mt-5'
+          />
+          {data?.link && (
+            <a href={data?.link} className='font-custom mt-2 text-sm text-gray-800'>Ссылка на оплату</a>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const Films = () => {
       <h1 className='text-2xl'>Фильмы</h1>
       <div className='mt-auto flex justify-between'>
         <span className='text-lg leading-[1.5rem] max-sm:max-w-[13rem] max-sm:text-[1.1rem]'>
-          Фильмы, которые связанны с <br /> нашей деятельностью
+          Фильмы, которые связаны с <br /> нашей деятельностью
         </span>
         <button
           className='w-14 h-14 rounded-full bg-black flex justify-center items-center ml-auto cursor-pointer'
