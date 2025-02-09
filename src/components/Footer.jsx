@@ -130,6 +130,10 @@ const Footer = () => {
           <span className='text-xs font-custom text-[#414141]'>
             Телефон доверия в ХМАО-Югре: 8-800-101-1212
           </span>
+          <span className='text-xs font-custom text-[#414141]'>
+            телефон доверия Центра поддержки материнства «Моя Радость» при храме
+            вмч. Георгия Победоносца 8-3462 ( 60-20-24 )
+          </span>
         </div>
       </div>
     </footer>
